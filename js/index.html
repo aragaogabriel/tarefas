@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tarefas</title>
+        <link rel="stylesheet" href="../CSS/styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="js/scripts.js" defer></script>
+    </head>
+    <body>
+        <div class="tarefas-container">
+            <header>
+                <h1>Goals</h1>
+            </header>
+            <form id="goals-form">
+                <p>Adicione a sua tarefa:</p>
+                <div class="form-control">
+                    <input type="text" id="goal-input" placeholder="Digite sua tarefa aqui..." />
+                    <button type="submit"><i class="fas fa-plus"></i></button>
+                </div>
+            </form>
+            <form id="edit--form">
+                <p>Edite a sua tarefa:</p>
+                <div class="form-control">
+                    <input type="text" id="edit-input" />
+                    <button type="submit"><i class="fas fa-check-double"></i></button>
+                </div>
+            </form>
+            <div id="toolbar">
+                <div id="search">
+                    <h4>Pesquisar:</h4>
+                    <form>
+                        <input type="text" id="search-input" placeholder="Digite para pesquisar..." />
+                        <button id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div id="filter">
+                    <h4>Filtrar:</h4>
+                    <select id="filter-select">
+                        <option value="all">Todas</option>
+                        <option value="completed">Finalizadas</option>
+                        <option value="incomplete">Incompletas</option>
+                    </select>
+                </div>
+            </div>
+            <div id="goals-list">
+                <div class="goals">
+                    <h3>Exemplo de tarefa.</h3>
+                    <button class="finish-goals">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                     <button class="edit-goals">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                     <button class="remove-goals">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    
+                </div>
+                <div class="goals">
+                    <h3>Exemplo de tarefa 2.</h3>
+                    <button class="finish-goals">
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                     <button class="edit-goals">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                     <button class="remove-goals">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </body> 
+</html>
