@@ -1,7 +1,4 @@
-/* ================================
-   Tarefas - styles.css
-   Melhorias: variáveis, layout, responsividade, estados
-   ================================ */
+
 
 /* Variáveis para facilitar ajustes */
 :root{
@@ -29,7 +26,7 @@ html, body {
     height: 100%;
 }
 
-/* Background do body (mantive sua imagem, com ajuste para cobrir) */
+/* Background do body */
 body {
     background-image: url("../img/IMG_20250715_173329023_HDR.jpg");
     background-position: center;
@@ -41,7 +38,7 @@ body {
 }
 
 /* Container central */
-.tarefas-container{
+.goals-container{
     max-width: var(--max-width);
     margin: 2rem auto;
     background: var(--bg-overlay);
@@ -51,18 +48,18 @@ body {
 }
 
 /* Header */
-.tarefas-container header{
+.goals-container header{
     text-align: center;
     margin-bottom: 1rem;
 }
 
-.tarefas-container header h1{
+.goals-container header h1{
     font-size: 1.9rem;
     color: var(--primary);
     letter-spacing: 0.4px;
 }
 
-/* Forms (novo e edição) */
+/* Forms (Nova tarefa e edição) */
 form {
     margin-bottom: 1rem;
 }
