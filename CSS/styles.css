@@ -1,5 +1,23 @@
-/* Geral */
-* {
+/* ================================
+   Tarefas - styles.css
+   Melhorias: variáveis, layout, responsividade, estados
+   ================================ */
+
+/* Variáveis para facilitar ajustes */
+:root{
+    --bg-overlay: rgba(255,255,255,0.92);
+    --primary: #0a4c79;        /* cor principal (azul) */
+    --accent: #e3f0db;         /* cor de destaque / botão */
+    --danger: #d9534f;         /* remover */
+    --success: #28a745;        /* concluir */
+    --muted: #6c757d;
+    --radius: 8px;
+    --gap: 0.75rem;
+    --max-width: 900px;
+}
+
+/* Reset / base */
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -7,35 +25,298 @@
     color: #333;
 }
 
+html, body {
+    height: 100%;
+}
+
+/* Background do body (mantive sua imagem, com ajuste para cobrir) */
 body {
     background-image: url("../img/IMG_20250715_173329023_HDR.jpg");
     background-position: center;
-    background-size: 100% auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 2rem;
 }
 
+/* Container central */
+.tarefas-container{
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    background: var(--bg-overlay);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 6px 20px rgba(10,76,121,0.12);
+}
+
+/* Header */
+.tarefas-container header{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tarefas-container header h1{
+    font-size: 1.9rem;
+    color: var(--primary);
+    letter-spacing: 0.4px;
+}
+
+/* Forms (novo e edição) */
+form {
+    margin-bottom: 1rem;
+}
+
+.form-control{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Inputs - expansível */
+input[type="text"], #search-input, #edit-input {
+    flex: 1;
+    padding: .6rem .75rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fff;
+    transition: border-color .18s, box-shadow .18s;
+}
+
+input[type="text"]::placeholder {
+    color: #bbb;
+}
+
+/* Focus visível e acessível */
+input[type="text"]:focus, select:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10,76,121,0.12);
+    border-color: var(--primary);
+}
+
+/* Botões principais - uso geral */
 button {
-    background-color: #e3f0db;
-    color: #0a4c79;
-    border: 2px solid #0a4c79;
-    padding: .3rem .6rem;
+    background-color: var(--accent);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: .35rem .6rem;
     font-size: 1rem;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    transition: 0.4s;
+    transition: transform .12s ease, background-color .18s ease, color .18s;
+    border-radius: 6px;
 }
 
-button:hover {
-    background-color: #0a4c79;
+button i{
+    color: var(--primary);
+    font-weight: 700;
+    pointer-events: none;
 }
 
-button:hover > i {
+/* Hover e active para botões */
+button:hover{
+    background-color: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+button:hover i{
     color: #fff;
 }
 
-button i {
-    color: #0a4c79;
-    font-weight: bold;
-    pointer-events: none;
+button:active{
+    transform: translateY(0);
+}
+
+/* Toolbar: pesquisa e filtro */
+#toolbar{
+    display:flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+#search, #filter {
+    background: transparent;
+}
+
+#search form {
+    display:flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+/* Select estilo simples */
+select{
+    padding: .45rem .6rem;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+}
+
+/* Lista de tarefas */
+#goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Cada tarefa */
+.goals{
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: .7rem;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #eee;
+    justify-content: space-between;
+}
+
+/* Conteúdo textual da tarefa */
+.goals h3{
+    font-size: 1rem;
+    font-weight: 600;
+    flex: 1;
+    color: #222;
+}
+
+/* Área de botões da tarefa */
+.goals .actions {
+    display:flex;
+    gap: .4rem;
+    align-items: center;
+    margin-left: .5rem;
+}
+
+/* Botões de ação - tamanhos menores e cores por propósito */
+.goals button{
+    padding: .35rem .45rem;
+    border-radius: 6px;
+    border-width: 1.5px;
+    min-width: 38px;
+    min-height: 38px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Finalizar */
+.finish-goals{
+    background: #fff;
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.finish-goals:hover{
+    background: var(--success);
+    color: #fff;
+}
+
+.finish-goals i{ color: var(--success); }
+
+/* Editar */
+.edit-goals{
+    background: #fff;
+    color: #1976d2;
+    border-color: #1976d2;
+}
+
+.edit-goals:hover{
+    background: #1976d2;
+    color: #fff;
+}
+
+.edit-goals i{ color: #1976d2; }
+
+/* Remover */
+.remove-goals{
+    background: #fff;
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+.remove-goals:hover{
+    background: var(--danger);
+    color: #fff;
+}
+
+.remove-goals i{ color: var(--danger); }
+
+/* Estado concluído */
+.goals.completed{
+    background: linear-gradient(0deg, rgba(10,76,121,0.03), rgba(10,76,121,0.03));
+    color: var(--muted);
+}
+
+.goals.completed h3{
+    text-decoration: line-through;
+    color: #777;
+    opacity: 0.9;
+}
+
+/* Pequenas dicas/legendas */
+small.helper{
+    display:block;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px){
+    .tarefas-container {
+        padding: 1rem;
+    }
+
+    .form-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-control button {
+        width: 100%;
+    }
+
+    .goals {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+    }
+
+    .goals h3 {
+        font-size: .98rem;
+    }
+
+    .goals .actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    #toolbar {
+        flex-direction: column;
+        gap: .5rem;
+    }
+}
+
+/* Respeitar preferência por menos movimento */
+@media (prefers-reduced-motion: reduce){
+    *{
+        transition: none !important;
+    }
+}
+
+/* Ajustes menores para impressão / contraste (opcional) */
+@media print {
+    body {
+        background: none;
+    }
+    .tarefas-container {
+        box-shadow: none;
+        background: #fff;
+    }
 }
