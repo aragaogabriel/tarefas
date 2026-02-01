@@ -59,9 +59,26 @@ body {
     letter-spacing: 0.4px;
 }
 
+/* Estilos para labels */
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
 /* Forms (Nova tarefa e edição) */
 form {
     margin-bottom: 1rem;
+}
+
+/* Estilo específico para forms principais */
+#goals-form, #edit-form {
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--primary);
 }
 
 .form-control{
@@ -148,6 +165,10 @@ button:active{
     align-items: center;
 }
 
+#search, #filter {
+    padding-bottom: 0.5rem;
+}
+
 /* Select estilo simples */
 select{
     padding: .45rem .6rem;
@@ -183,15 +204,7 @@ select{
     color: #222;
 }
 
-/* Área de botões da tarefa */
-.goals .actions {
-    display:flex;
-    gap: .4rem;
-    align-items: center;
-    margin-left: .5rem;
-}
-
-/* Botões de ação - tamanhos menores e cores por propósito */
+/* Botões de ação Goals */
 .goals button{
     padding: .35rem .45rem;
     border-radius: 6px;
@@ -257,16 +270,9 @@ select{
     opacity: 0.9;
 }
 
-/* Pequenas dicas/legendas */
-small.helper{
-    display:block;
-    color: var(--muted);
-    font-size: .85rem;
-}
-
 /* Responsividade */
 @media (max-width: 600px){
-    .tarefas-container {
+    .goals-container {
         padding: 1rem;
     }
 
@@ -289,14 +295,21 @@ small.helper{
         font-size: .98rem;
     }
 
-    .goals .actions {
-        width: 100%;
-        justify-content: flex-start;
+    .goals button {
+        width: auto;
     }
 
     #toolbar {
         flex-direction: column;
         gap: .5rem;
+    }
+
+     #search, #filter {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
     }
 }
 
@@ -307,12 +320,12 @@ small.helper{
     }
 }
 
-/* Ajustes menores para impressão / contraste (opcional) */
+/* Ajustes menores para impressão / contraste */
 @media print {
     body {
         background: none;
     }
-    .tarefas-container {
+    .goals-container {
         box-shadow: none;
         background: #fff;
     }

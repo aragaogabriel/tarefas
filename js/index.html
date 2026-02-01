@@ -15,24 +15,21 @@
                 <h1>Goals</h1>
             </header>
             <form id="goals-form">
-                <p>Adicione a sua tarefa:</p>
+                <label for="goal-input">Adicione a sua tarefa:</label>
                 <div class="form-control">
-                    <label for="goal-input">Nova tarefa:</label>
                     <input type="text" id="goal-input" placeholder="Digite sua tarefa aqui..." />
                     <button type="submit"><i class="fas fa-plus"></i></button>
                 </div>
             </form>
             <form id="edit-form">
-                <p>Edite a sua tarefa:</p>
+                <label for="edit-input">Edite a sua tarefa:</label>
                 <div class="form-control">
-                    <label for="edit-input">Editar tarefa:</label>
                     <input type="text" id="edit-input" />
                     <button type="submit"><i class="fas fa-check-double"></i></button>
                 </div>
             </form>
             <div id="toolbar">
                 <div id="search">
-                    <h4>Pesquisar:</h4>
                     <form>
                         <label for="search-input">Buscar tarefa:</label>
                         <input type="text" id="search-input" placeholder="Digite para pesquisar..." />
@@ -41,8 +38,7 @@
                         </button>
                     </form>
                 </div>
-                <div id="filter">
-                    <h4>Filtrar:</h4>
+                <div id="filter">                    
                     <label for="filter-select">Filtrar por status:</label>
                     <select id="filter-select">
                         <option value="all">Todas</option>
